@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #022c22; /* Emerald 950 base */
+    color: #f0fdf4; /* Emerald 50 text */
+  }
+
+  /* Custom Premium Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #022c22;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #047857; /* Emerald 700 */
+    border: 2px solid #022c22;
+    border-radius: 9999px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #10b981; /* Emerald 500 */
+  }
+}
+
+/* Custom premium elements */
+.glassmorphism {
+  background: rgba(2, 44, 34, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Glowing accent elements */
+@keyframes pulse-emerald {
+  0%, 100% {
+    opacity: 0.25;
+    transform: scale(1) translate(0px, 0px);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(1.1) translate(10px, -10px);
+  }
+}
+
+.glowing-orb {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(52, 211, 153, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+  filter: blur(60px);
+  z-index: -1;
+  pointer-events: none;
+  animation: pulse-emerald 10s infinite ease-in-out;
+}
