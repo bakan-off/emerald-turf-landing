@@ -18,11 +18,12 @@ let targetFrame = 0;
 
 // Preload Images
 function preloadImages() {
+  const baseUrl = import.meta.env.BASE_URL || "/";
   for (let i = 1; i <= totalFrames; i++) {
     const img = new Image();
     const frameNum = String(i).padStart(3, "0");
     // Vite serves public folder contents at root '/'
-    img.src = `/frames/frame_${frameNum}.jpg`;
+    img.src = `${baseUrl}frames/frame_${frameNum}.jpg`;
     img.onload = () => {
       loadedCount++;
       const percent = Math.round((loadedCount / totalFrames) * 100);
